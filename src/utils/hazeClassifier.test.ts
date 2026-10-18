@@ -82,7 +82,7 @@ function runTests() {
   assert('North PM2.5 mapped correctly to 45', north?.pm25 === 45);
   assert('West PM2.5 mapped correctly to 160', west?.pm25 === 160);
   assert('West PSI mapped correctly to 120', west?.psi === 120);
-  assert('Dominant PM2.5 is maximum regional (160)', normalised.pm25 === 160);
+  assert('Highest PM2.5 is maximum regional (160)', normalised.pm25 === 160);
   assert('Classification of 160 is High', normalised.currentStatus === 'high');
 
   // Test 7: Source timestamp and fetched timestamp remain distinct

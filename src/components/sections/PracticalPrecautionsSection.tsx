@@ -95,22 +95,6 @@ export const PracticalPrecautionsSection: React.FC<PracticalPrecautionsSectionPr
                   }
                   referrerPolicy="no-referrer"
                 />
-
-                <button
-                  onClick={() =>
-                    onOpenPoster(
-                      '/images/story06.png',
-                      'What Else Can You Do?',
-                      'Four practical actions to minimize haze exposure and maintain clean indoor living spaces.',
-                      6
-                    )
-                  }
-                  className="absolute bottom-3 right-3 px-3 py-1.5 rounded-xl bg-[#102D50]/90 hover:bg-[#102D50] text-[#FFD34E] text-xs font-bold flex items-center gap-1.5 backdrop-blur-sm transition-all shadow-md cursor-pointer"
-                  aria-label="Enlarge Poster 6"
-                >
-                  <Eye className="w-3.5 h-3.5" />
-                  <span>Enlarge Poster</span>
-                </button>
               </div>
 
               <div className="mt-3 px-2 flex items-center justify-between text-xs text-slate-600 font-medium">

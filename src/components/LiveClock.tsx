@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { formatSingaporeTime } from '../utils/hazeClassifier';
-import { RefreshCw, Radio, AlertTriangle, WifiOff } from 'lucide-react';
+import { RefreshCw, Radio, AlertTriangle, WifiOff, Layers, BookOpen } from 'lucide-react';
 import { HazeData } from '../types/haze';
 
 interface LiveClockProps {
@@ -8,6 +8,8 @@ interface LiveClockProps {
   isLoading: boolean;
   onRefresh: () => void;
   nextPollSeconds: number;
+  viewMode?: 'vertical' | 'slides';
+  onToggleViewMode?: () => void;
 }
 
 export const LiveClock: React.FC<LiveClockProps> = ({
@@ -15,6 +17,8 @@ export const LiveClock: React.FC<LiveClockProps> = ({
   isLoading,
   onRefresh,
   nextPollSeconds,
+  viewMode = 'vertical',
+  onToggleViewMode,
 }) => {
   const [currentTime, setCurrentTime] = useState<{
     fullDate: string;
@@ -95,7 +99,7 @@ export const LiveClock: React.FC<LiveClockProps> = ({
           </div>
         </div>
 
-        {/* Feed Status & Refresh Action (Observation Time section removed) */}
+        {/* Feed Status, Refresh Action, and Slides Mode button to the far right */}
         <div className="flex items-center gap-2 text-xs">
           {/* Status Indicator */}
           <div
@@ -121,6 +125,27 @@ export const LiveClock: React.FC<LiveClockProps> = ({
               ({nextPollSeconds}s)
             </span>
           </button>
+
+          {/* Toggle between scroll flow and slide viewer button at the far right of Refresh */}
+          {onToggleViewMode && (
+            <button
+              onClick={onToggleViewMode}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#D9272E] hover:bg-[#bf1f26] text-white text-xs font-bold transition-all shadow-sm cursor-pointer"
+              title="Toggle between scroll flow and slide viewer"
+            >
+              {viewMode === 'vertical' ? (
+                <>
+                  <Layers className="w-3.5 h-3.5" />
+                  <span>Slides Mode</span>
+                </>
+              ) : (
+                <>
+                  <BookOpen className="w-3.5 h-3.5" />
+                  <span>Scroll Flow</span>
+                </>
+              )}
+            </button>
+          )}
         </div>
       </div>
     </div>

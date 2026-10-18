@@ -276,10 +276,10 @@ export function normaliseOfficialHazeData(
     });
   });
 
-  // Calculate min, max, dominant readings
+  // Calculate min, max, highest readings
   const pm25Min = pm25Values.length > 0 ? Math.min(...pm25Values) : null;
   const pm25Max = pm25Values.length > 0 ? Math.max(...pm25Values) : null;
-  // Represent dominant reading by highest regional reading or central reading
+  // Represent highest reading by highest regional reading or central reading
   const pm25Dominant = pm25Max !== null ? pm25Max : null;
 
   const psiMin = psiValues.length > 0 ? Math.min(...psiValues) : null;

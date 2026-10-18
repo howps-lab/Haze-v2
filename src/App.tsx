@@ -150,20 +150,20 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#FFF5E7] flex flex-col font-sans selection:bg-[#FFD34E] selection:text-[#102D50]">
-      {/* Top Live Singapore Clock Header */}
+      {/* Top Live Singapore Clock Header with Slides Mode button on far right of Refresh */}
       <LiveClock
         hazeData={realHazeData}
         isLoading={isLoading}
         onRefresh={() => loadData(true)}
         nextPollSeconds={nextPollSeconds}
+        viewMode={viewMode}
+        onToggleViewMode={() => setViewMode((m) => (m === 'vertical' ? 'slides' : 'vertical'))}
       />
 
       {/* Sticky Story Navigation */}
       <StoryNavigation
         currentStoryIndex={currentStoryIndex}
         onSelectStory={handleSelectStory}
-        viewMode={viewMode}
-        onToggleViewMode={() => setViewMode((m) => (m === 'vertical' ? 'slides' : 'vertical'))}
       />
 
       {/* Main Content Area */}

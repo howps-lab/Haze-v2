@@ -121,15 +121,23 @@ export const RegionalReadings: React.FC<RegionalReadingsProps> = ({
                 </div>
               </div>
 
-              {/* 24-Hour PSI metric */}
-              <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
-                <span className="text-slate-500 font-medium flex items-center gap-1">
-                  <Activity className="w-3 h-3 text-[#102D50]" />
-                  <span>24-hr PSI:</span>
-                </span>
-                <span className="font-bold text-[#102D50]">
-                  {psi !== null && psi !== undefined ? psi : '—'}
-                </span>
+              {/* 24-Hour PSI metric (enlarged by 80%) */}
+              <div className="pt-2 border-t border-slate-200">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1 text-[11px] text-slate-600 font-bold uppercase">
+                    <Activity className="w-3.5 h-3.5 text-[#D9272E]" />
+                    <span>24-HR PSI</span>
+                  </div>
+                  {psi && psi > 100 && (
+                    <span className="text-[10px] font-black text-[#D9272E] uppercase">Unhealthy</span>
+                  )}
+                </div>
+                <div className="flex items-baseline gap-1 mt-0.5">
+                  <span className="font-display text-2xl sm:text-3xl font-black text-[#102D50] tracking-tight">
+                    {psi !== null && psi !== undefined ? psi : '—'}
+                  </span>
+                  <span className="text-[10px] text-slate-500 font-bold uppercase">PSI index</span>
+                </div>
               </div>
             </div>
           );

@@ -100,22 +100,6 @@ export const FamilyProtectionSection: React.FC<FamilyProtectionSectionProps> = (
                   }
                   referrerPolicy="no-referrer"
                 />
-
-                <button
-                  onClick={() =>
-                    onOpenPoster(
-                      '/images/story07.png',
-                      'Protect The People You Love',
-                      'Multi-generational Singapore family at home, emphasizing care, mutual protection, and community vigilance.',
-                      7
-                    )
-                  }
-                  className="absolute bottom-3 right-3 px-3 py-1.5 rounded-xl bg-[#102D50]/90 hover:bg-[#102D50] text-[#FFD34E] text-xs font-bold flex items-center gap-1.5 backdrop-blur-sm transition-all shadow-md cursor-pointer"
-                  aria-label="Enlarge Poster 7"
-                >
-                  <Eye className="w-3.5 h-3.5" />
-                  <span>Enlarge Poster</span>
-                </button>
               </div>
 
               <div className="mt-3 px-2 flex items-center justify-between text-xs text-slate-600 font-medium">
@@ -150,15 +134,15 @@ export const FamilyProtectionSection: React.FC<FamilyProtectionSectionProps> = (
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
                 <div className="bg-[#FFF5E7] p-2.5 rounded-xl border border-[#FFD34E]/60">
-                  <span className="text-slate-500 block text-[10px] uppercase font-bold">Dominant 1-Hr PM2.5</span>
+                  <span className="text-slate-500 block text-[10px] uppercase font-bold">Highest 1-Hr PM2.5</span>
                   <span className="font-display text-xl font-bold" style={{ color: details.colorHex }}>
                     {hazeData?.pm25 ?? '—'} µg/m³
                   </span>
                 </div>
 
                 <div className="bg-[#FFF5E7] p-2.5 rounded-xl border border-[#FFD34E]/60">
-                  <span className="text-slate-500 block text-[10px] uppercase font-bold">Dominant 24-Hr PSI</span>
-                  <span className="font-display text-xl font-bold text-[#102D50]">
+                  <span className="text-slate-500 block text-[10px] uppercase font-bold">Highest 24-Hr PSI</span>
+                  <span className="font-display text-3xl sm:text-4xl font-black text-[#102D50]">
                     {hazeData?.psi ?? '—'}
                   </span>
                 </div>

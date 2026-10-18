@@ -101,22 +101,6 @@ export const ActivitySection: React.FC<ActivitySectionProps> = ({
                   }
                   referrerPolicy="no-referrer"
                 />
-
-                <button
-                  onClick={() =>
-                    onOpenPoster(
-                      '/images/story02.png',
-                      'Going Out? Check This First',
-                      'Illustrated guide for walking, jogging, cycling, and playground safety.',
-                      2
-                    )
-                  }
-                  className="absolute bottom-3 right-3 px-3 py-1.5 rounded-xl bg-[#102D50]/90 hover:bg-[#102D50] text-[#FFD34E] text-xs font-bold flex items-center gap-1.5 backdrop-blur-sm transition-all shadow-md cursor-pointer"
-                  aria-label="Enlarge Poster 2"
-                >
-                  <Eye className="w-3.5 h-3.5" />
-                  <span>Enlarge Poster</span>
-                </button>
               </div>
 
               <div className="mt-3 px-2 flex items-center justify-between text-xs text-slate-600 font-medium">
@@ -145,7 +129,7 @@ export const ActivitySection: React.FC<ActivitySectionProps> = ({
                   1-HOUR PM2.5
                 </div>
                 <div className="text-xs text-rose-100 font-medium mt-1">
-                  Dominant Island Reading:{' '}
+                  Highest Island Reading:{' '}
                   <span className="font-black text-white text-base">
                     {hazeData?.pm25 !== null && hazeData?.pm25 !== undefined ? `${hazeData.pm25} µg/m³` : 'Unavailable'}
                   </span>

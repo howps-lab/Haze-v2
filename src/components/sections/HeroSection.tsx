@@ -1,7 +1,7 @@
 import React from 'react';
 import { HazeData } from '../../types/haze';
 import { getClassificationDetails, formatObservationTime } from '../../utils/hazeClassifier';
-import { ArrowDown, Wind, ShieldAlert, Sparkles, Eye, Info, CheckCircle2 } from 'lucide-react';
+import { ArrowDown, Wind, ShieldAlert, Sparkles, Info, CheckCircle2 } from 'lucide-react';
 
 interface HeroSectionProps {
   hazeData: HazeData | null;
@@ -31,13 +31,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Left Column: Visual Story Illustration Poster Card */}
           <div className="lg:col-span-5 flex flex-col items-center">
             <div className="relative group w-full max-w-sm sm:max-w-md bg-white rounded-3xl p-3 border-4 border-[#102D50] poster-shadow overflow-hidden transform transition-transform hover:scale-[1.01]">
-              {/* Badge Overlay */}
-              <div className="absolute top-5 left-5 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#102D50] text-[#FFD34E] text-xs font-black uppercase font-display tracking-wider shadow-md">
-                <span>POSTER 01</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FFD34E]"></span>
-                <span>PUBLIC PSA</span>
-              </div>
-
               {/* Poster Image with Gentle Breathe Animation */}
               <div className="relative rounded-2xl overflow-hidden bg-slate-100 aspect-[3/4]">
                 <img
@@ -54,23 +47,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   }
                   referrerPolicy="no-referrer"
                 />
-
-                {/* Quick inspect button */}
-                <button
-                  onClick={() =>
-                    onOpenPoster(
-                      '/images/story01.png',
-                      'The Haze Is Back',
-                      'Singapore illustrated street with residents observing haze conditions.',
-                      1
-                    )
-                  }
-                  className="absolute bottom-3 right-3 px-3 py-1.5 rounded-xl bg-[#102D50]/90 hover:bg-[#102D50] text-[#FFD34E] text-xs font-bold flex items-center gap-1.5 backdrop-blur-sm transition-all shadow-md cursor-pointer"
-                  aria-label="Enlarge Poster 1"
-                >
-                  <Eye className="w-3.5 h-3.5" />
-                  <span>View Poster</span>
-                </button>
               </div>
 
               {/* Caption Under Card */}
@@ -138,23 +114,42 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
                 {/* Value & Category */}
-                <div>
-                  <div className="flex items-center gap-1.5 text-xs text-slate-500 font-bold uppercase">
-                    <Wind className="w-4 h-4 text-[#102D50]" />
-                    <span>Dominant 1-Hour PM2.5</span>
+                <div className="space-y-3">
+                  <div className="flex flex-wrap items-center gap-4">
+                    {/* 1-Hour PM2.5 */}
+                    <div>
+                      <div className="flex items-center gap-1.5 text-xs text-slate-500 font-bold uppercase">
+                        <Wind className="w-4 h-4 text-[#102D50]" />
+                        <span>1-Hour PM2.5</span>
+                      </div>
+                      <div className="flex items-baseline gap-1 mt-0.5">
+                        <span
+                          className="font-display text-4xl sm:text-5xl font-black tracking-tight"
+                          style={{ color: details.colorHex }}
+                        >
+                          {pm25Val !== null && pm25Val !== undefined ? pm25Val : 'N/A'}
+                        </span>
+                        <span className="text-xs font-bold text-slate-500">µg/m³</span>
+                      </div>
+                    </div>
+
+                    {/* 24-Hour PSI (enlarged by 80%) */}
+                    <div className="pl-4 border-l-2 border-slate-200">
+                      <div className="flex items-center gap-1.5 text-xs text-slate-500 font-bold uppercase">
+                        <ShieldAlert className="w-4 h-4 text-[#D9272E]" />
+                        <span>24-Hour PSI</span>
+                      </div>
+                      <div className="flex items-baseline gap-1 mt-0.5">
+                        <span className="font-display text-4xl sm:text-5xl font-black tracking-tight text-[#102D50]">
+                          {hazeData?.psi !== null && hazeData?.psi !== undefined ? hazeData.psi : '—'}
+                        </span>
+                        <span className="text-xs font-bold text-slate-500">PSI</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-baseline gap-2 mt-1">
-                    <span
-                      className="font-display text-5xl sm:text-6xl font-black tracking-tight"
-                      style={{ color: details.colorHex }}
-                    >
-                      {pm25Val !== null && pm25Val !== undefined ? pm25Val : 'N/A'}
-                    </span>
-                    <span className="text-sm font-bold text-slate-500">µg/m³</span>
-                  </div>
-                  <div className="text-xs text-slate-600 mt-1">
-                    Official Band:{' '}
-                    <strong className="text-slate-900">{details.label}</strong> ({details.rangeText})
+
+                  <div className="text-xs text-slate-600">
+                    Official Band: <strong className="text-slate-900">{details.label}</strong> ({details.rangeText})
                   </div>
                 </div>
 

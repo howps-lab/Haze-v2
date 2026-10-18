@@ -8,7 +8,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const portArgIndex = process.argv.indexOf('--port');
+const portArg = portArgIndex !== -1 ? parseInt(process.argv[portArgIndex + 1], 10) : undefined;
+const PORT = portArg || 3000;
 
 // In-memory cache for official Singapore haze data
 let cachedHazeData: HazeData | null = null;
@@ -114,8 +116,8 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, () => {
-    console.log(`Singapore Haze Monitor Server running on port ${PORT}`);
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Singapore Haze Monitor Server running on port ${PORT} (0.0.0.0)`);
   });
 }
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Eye, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import { HazeData } from '../types/haze';
 import { getClassificationDetails } from '../utils/hazeClassifier';
 
@@ -22,7 +22,7 @@ export const SlideViewer: React.FC<SlideViewerProps> = ({
       image: '/images/story01.png',
       title: 'THE HAZE IS BACK',
       subtitle: 'Singapore air quality enters the unhealthy range',
-      focus: 'Check dominant 1-Hour PM2.5 readings before planning outdoor commutes or exercise.',
+      focus: 'Check highest 1-Hour PM2.5 readings before planning outdoor commutes or exercise.',
     },
     {
       num: 2,
@@ -132,21 +132,6 @@ export const SlideViewer: React.FC<SlideViewerProps> = ({
             }
             referrerPolicy="no-referrer"
           />
-
-          <button
-            onClick={() =>
-              onOpenPoster(
-                currentSlide.image,
-                currentSlide.title,
-                currentSlide.subtitle,
-                currentSlide.num
-              )
-            }
-            className="absolute bottom-3 right-3 px-3 py-1.5 rounded-xl bg-[#102D50]/90 text-[#FFD34E] text-xs font-bold flex items-center gap-1.5 shadow-md hover:bg-[#102D50] cursor-pointer"
-          >
-            <Eye className="w-3.5 h-3.5" />
-            <span>Enlarge Poster</span>
-          </button>
         </div>
 
         {/* Bottom Takeaway Card */}

@@ -52,22 +52,6 @@ export const MaskGuidanceSection: React.FC<MaskGuidanceSectionProps> = ({
                   }
                   referrerPolicy="no-referrer"
                 />
-
-                <button
-                  onClick={() =>
-                    onOpenPoster(
-                      '/images/story05.png',
-                      'Do You Need an N95? Not Always.',
-                      'Guidelines on short trips, prolonged exposure, child fit, and respirator usage.',
-                      5
-                    )
-                  }
-                  className="absolute bottom-3 right-3 px-3 py-1.5 rounded-xl bg-[#102D50]/90 hover:bg-[#102D50] text-[#FFD34E] text-xs font-bold flex items-center gap-1.5 backdrop-blur-sm transition-all shadow-md cursor-pointer"
-                  aria-label="Enlarge Poster 5"
-                >
-                  <Eye className="w-3.5 h-3.5" />
-                  <span>Enlarge Poster</span>
-                </button>
               </div>
 
               <div className="mt-3 px-2 flex items-center justify-between text-xs text-slate-600 font-medium">
