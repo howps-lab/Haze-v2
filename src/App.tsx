@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { HazeData, SingaporeRegion } from './types/haze';
 import { fetchHazeData } from './services/hazeApi';
 import { classifyPM25 } from './utils/hazeClassifier';
@@ -248,6 +249,9 @@ export default function App() {
         caption={posterModal.caption}
         storyNumber={posterModal.num}
       />
+      
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }
