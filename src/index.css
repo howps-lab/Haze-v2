@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-navy: #102D50;
+    --color-red: #D9272E;
+    --color-green: #218451;
+    --color-yellow: #FFD34E;
+    --color-amber: #F4B52C;
+    --color-orange: #EE6237;
+    --color-lightblue: #D9EEFA;
+    --color-warmcream: #FFF5E7;
+  }
+}
+
+.font-display {
+  font-family: 'Anton', 'Barlow Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-condensed {
+  font-family: 'Barlow Condensed', 'Anton', sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.font-sans {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom Public Health Poster styling */
+.poster-shadow {
+  box-shadow: 0 12px 30px -6px rgba(16, 45, 80, 0.15), 0 4px 12px -2px rgba(16, 45, 80, 0.08);
+}
+
+.poster-border {
+  border: 3px solid #102D50;
+}
+
+.yellow-highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.yellow-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: -4px;
+  right: -4px;
+  height: 38%;
+  background-color: #FFD34E;
+  z-index: -1;
+  border-radius: 4px;
+  transform: rotate(-1deg);
+}
+
+/* Character and Scenery subtle keyframes */
+@keyframes gentleBreathe {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.008);
+  }
+}
+
+@keyframes cloudDrift {
+  0% {
+    transform: translateX(-5%);
+  }
+  50% {
+    transform: translateX(5%);
+  }
+  100% {
+    transform: translateX(-5%);
+  }
+}
+
+@keyframes subtleFoliage {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(0.8deg);
+  }
+  75% {
+    transform: rotate(-0.8deg);
+  }
+}
+
+@keyframes livePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(0.92);
+  }
+}
+
+@keyframes hazeMist {
+  0% {
+    opacity: 0.25;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0.42;
+    transform: translateY(-8px) scale(1.02);
+  }
+  100% {
+    opacity: 0.25;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-breathe {
+  animation: gentleBreathe 4.5s ease-in-out infinite;
+}
+
+.animate-cloud {
+  animation: cloudDrift 28s ease-in-out infinite;
+}
+
+.animate-foliage {
+  animation: subtleFoliage 6s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.animate-live-pulse {
+  animation: livePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-haze-mist {
+  animation: hazeMist 10s ease-in-out infinite;
+}
+
+/* Reduced motion media query */
+@media (prefers-reduced-motion: reduce) {
+  .animate-breathe,
+  .animate-cloud,
+  .animate-foliage,
+  .animate-live-pulse,
+  .animate-haze-mist {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF5E7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #102D50;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D9272E;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "The Haze — Singapore Air Quality & Public Guide",
+  "description": "Real-time Singapore haze monitoring, live PM2.5 readings, official health guidance, and interactive illustrated public campaign.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
